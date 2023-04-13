@@ -3,15 +3,22 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+// Getaxios function to make http request using axios library
 function Getaxios() {
+  // Declare myData state variable and setMyData function to update the state
   const [myData, setMyData] = useState([]);
 
+  // useEffect hook to make http request when component is mounted
   useEffect(() => {
+    // Make http request using axios library
     axios.get("https://dummyjson.com/products").then((response) => {
+      // Update myData state with response data
       setMyData(response.data.products);
       console.log("response", response.data.products);
     });
   });
+
+  // Render table with product details
   return (
     <>
       {" "}
@@ -49,4 +56,5 @@ function Getaxios() {
   );
 }
 
+// Export Getaxios component
 export default Getaxios;

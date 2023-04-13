@@ -3,27 +3,19 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Fetch() {
-  // fetch("https://jsonplaceholder.typicode.com/posts/1/comments").then(
-  //   (response) => {
-  //     response.json().then((json) => {
-  //       console.log("resp", json);
-  //     });
-  //   }
-  // );
-  //we are using this now using useEffect method
-
+  // declaring data state variable and setData function to update the state
   const [data, setData] = useState([]);
 
+  // using useEffect hook to fetch data from the given url
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/posts/1/comments").then(
       (response) => {
         response.json().then((json) => {
-          setData(json);
-          // console.log("json", json);
+          setData(json); // updating the data state with the fetched json data
         });
       }
     );
-  }, []);
+  }, []); // passing empty array as second argument to make sure that this effect is only run once when the component mounts
 
   return (
     <div className="fetch">
@@ -38,6 +30,7 @@ function Fetch() {
           <td>email</td>
           <td>body</td>
         </tr>
+        {/* mapping through the data state and displaying the data in table format */}
         {data.map((item) => (
           <tr>
             <td>{item.id}</td>
