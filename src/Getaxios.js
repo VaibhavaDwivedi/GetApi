@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+const dummyData = "https://dummyjson.com/products";
 // Getaxios function to make http request using axios library
 function Getaxios() {
   // Declare myData state variable and setMyData function to update the state
@@ -11,7 +12,7 @@ function Getaxios() {
   // useEffect hook to make http request when component is mounted
   useEffect(() => {
     // Make http request using axios library
-    axios.get("https://dummyjson.com/products").then((response) => {
+    axios.get(dummyData).then((response) => {
       // Update myData state with response data
       setMyData(response.data.products);
       console.log("response", response.data.products);

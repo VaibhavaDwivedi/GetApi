@@ -27,7 +27,6 @@ function Async() {
 
   useEffect(() => {
     async function getStoreApi() {
-      // Make an API call using axios
       const response = await axios.get(apiData);
       setData(response.data);
     }

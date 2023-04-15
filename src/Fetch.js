@@ -2,13 +2,15 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+const apiLink = "https://jsonplaceholder.typicode.com/posts/1/comments";
+
 function Fetch() {
   // declaring data state variable and setData function to update the state
   const [data, setData] = useState([]);
 
   // using useEffect hook to fetch data from the given url
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts/1/comments").then(
+    fetch(apiLink).then(
       (response) => {
         response.json().then((json) => {
           setData(json); // updating the data state with the fetched json data
